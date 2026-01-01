@@ -20,37 +20,50 @@ A command-line interface (CLI) application for managing todo tasks. This applica
 
 All commands should be run using `uv run` to ensure the proper environment is used:
 
-### Add a Task
+### Interactive Mode (New!)
+Launch the interactive menu system by running without any arguments:
+```bash
+uv run python -m src
+```
+This will launch an arrow-key navigable menu system where you can:
+- Use UP/DOWN arrow keys to navigate menu options
+- Press ENTER to select an option
+- Menu includes: Add Task, List Tasks, Complete Task, Update Task, Delete Task, Quit
+
+### Command-Line Mode (Backward Compatible)
+The existing command-line functionality remains unchanged:
+
+#### Add a Task
 ```bash
 uv run python -m src add "Task title" "Optional description"
 ```
 
-### View All Tasks
+#### View All Tasks
 ```bash
 uv run python -m src list
 ```
 
-### Complete a Task
+#### Complete a Task
 ```bash
 uv run python -m src complete 1
 ```
 
-### Mark a Task as Incomplete
+#### Mark a Task as Incomplete
 ```bash
 uv run python -m src uncomplete 1
 ```
 
-### Update Task Details
+#### Update Task Details
 ```bash
 uv run python -m src update 1 "New title" "Optional new description"
 ```
 
-### Delete a Task
+#### Delete a Task
 ```bash
 uv run python -m src delete 1
 ```
 
-### Get Help
+#### Get Help
 ```bash
 uv run python -m src --help
 ```
