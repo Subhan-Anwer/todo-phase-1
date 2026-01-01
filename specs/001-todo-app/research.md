@@ -143,7 +143,7 @@ class TodoService:
 Recommended structure for the todo application:
 
 ```
-todo_app/
+todo-app/
 ├── src/
 │   ├── __main__.py          # Entry point
 │   ├── models/
