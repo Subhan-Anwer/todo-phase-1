@@ -212,6 +212,8 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 ## Active Technologies
 - Python 3.12+ (as specified in constitution) + Standard Python libraries only (no external dependencies) (001-todo-app)
 - In-memory only, no file or database persistence (001-todo-app)
+- Python 3.12+ (as specified in constitution) + Typer for CLI, Rich for formatting, simple-term-menu for interactive menus, standard Python libraries only (001-interactive-todo-app)
+- In-memory only using Python data structures, no file or database persistence (001-interactive-todo-app)
 
 ## Recent Changes
 - 001-todo-app: Added Python 3.12+ (as specified in constitution) + Standard Python libraries only (no external dependencies)
