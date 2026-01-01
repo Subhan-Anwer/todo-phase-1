@@ -18,34 +18,41 @@ A command-line interface (CLI) application for managing todo tasks. This applica
 
 ## Usage
 
+All commands should be run using `uv run` to ensure the proper environment is used:
+
 ### Add a Task
 ```bash
-python -m src add "Task title" "Optional description"
+uv run python -m src add "Task title" "Optional description"
 ```
 
 ### View All Tasks
 ```bash
-python -m src list
+uv run python -m src list
 ```
 
 ### Complete a Task
 ```bash
-python -m src complete 1
+uv run python -m src complete 1
 ```
 
 ### Mark a Task as Incomplete
 ```bash
-python -m src uncomplete 1
+uv run python -m src uncomplete 1
 ```
 
 ### Update Task Details
 ```bash
-python -m src update 1 "New title" "Optional new description"
+uv run python -m src update 1 "New title" "Optional new description"
 ```
 
 ### Delete a Task
 ```bash
-python -m src delete 1
+uv run python -m src delete 1
+```
+
+### Get Help
+```bash
+uv run python -m src --help
 ```
 
 ## Features
