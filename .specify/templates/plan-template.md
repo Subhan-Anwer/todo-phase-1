@@ -17,21 +17,28 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: Python 3.12+ (as specified in constitution)
+**Primary Dependencies**: Standard Python libraries only (no external dependencies)
+**Storage**: In-memory only, no file or database persistence
+**Testing**: pytest for unit and integration testing
+**Target Platform**: Cross-platform CLI application (Linux, macOS, Windows)
+**Project Type**: Single CLI application - determines source structure
+**Performance Goals**: Fast CLI response times, minimal memory usage for task operations
+**Constraints**: Single-user, CLI-only, no network connectivity, no authentication required
+**Scale/Scope**: Individual user todo list, limited by available memory only
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+1. Specification-First Development: All features must follow specification-first approach with written specs before implementation
+2. Core Feature Completeness: Must implement Add, Delete, Update, View, and Mark Complete task functionality
+3. In-Memory Task Management: All tasks stored in memory only, no persistence requirements
+4. CLI-Only Interface: Application operates exclusively through command-line interface
+5. Task Integrity and Uniqueness: Every task must have unique identifier and title, with optional description
+6. Technical Constraints: Python 3.12+ only, standard libraries only, single-user CLI application
+7. User Interaction Rules: Graceful error handling, no crashes on invalid input, clear feedback
+8. Scope Constraints: CLI-only, in-memory, single-user, no auth/persistence/network
 
 ## Project Structure
 
@@ -56,39 +63,40 @@ specs/[###-feature]/
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# Option 1: Single CLI project (DEFAULT)
 src/
 ├── models/
+│   └── task.py          # Task entity with id, title, description, completion status
 ├── services/
+│   └── todo_service.py  # Business logic for task operations (add, delete, update, etc.)
 ├── cli/
-└── lib/
+│   └── cli.py           # Command-line interface and argument parsing
+└── __main__.py          # Application entry point
 
 tests/
-├── contract/
+├── unit/
+│   ├── test_task.py     # Unit tests for Task model
+│   └── test_todo_service.py  # Unit tests for todo operations
 ├── integration/
-└── unit/
+│   └── test_cli.py      # Integration tests for CLI functionality
+└── contract/            # (if applicable) API contract tests
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
+# Source code organization for CLI Todo Application
+todo_app/
 ├── src/
+│   ├── __main__.py      # Main application entry point
 │   ├── models/
+│   │   └── task.py      # Task data model
 │   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+│   │   └── todo_service.py  # Core business logic
+│   └── cli/
+│       └── cli.py       # Command-line interface
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   └── contract/
+├── README.md
+└── requirements.txt     # Only if external dependencies added (should be empty per constitution)
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real

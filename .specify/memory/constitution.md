@@ -1,55 +1,64 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A (initial creation) → 1.0.0
+Modified principles: N/A
+Added sections: All principles and sections based on Todo Application specification
+Removed sections: N/A
+Templates requiring updates:
+- .specify/templates/plan-template.md: ✅ updated to align with new principles
+- .specify/templates/spec-template.md: ✅ updated to align with new principles
+- .specify/templates/tasks-template.md: ✅ updated to align with new principles
+- .specify/templates/commands/*.md: ✅ reviewed for consistency
+Follow-up TODOs: None
+-->
+
+# Todo Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Specification-First Development
+All features must be implemented following specification-first approach. No feature is implemented without a written specification. Behavior correctness is prioritized over performance, and simplicity is valued over abstraction.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Core Feature Completeness
+The application must support the five core features: Add Task (create new todo items), Delete Task (remove tasks from the list), Update Task (modify existing task details), View Tasks (display all tasks), and Mark Task as Completed (toggle task completion status).
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### In-Memory Task Management
+All tasks are stored in memory only, with no persistence to file or database. This ensures simplicity and determinism while maintaining the core functionality of a todo application.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### CLI-Only Interface
+The application operates exclusively through command-line interface. All user interaction occurs via terminal input/output, with graceful handling of invalid user input and clear feedback for every action.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Task Integrity and Uniqueness
+Every new added task must have a unique identifier by default. Every task must have a title, can have an optional description, and can be either complete or incomplete (incomplete by default when creating). Tasks cannot exist without an identifier and cannot be partially deleted or corrupted.
 
-### [PRINCIPLE_6_NAME]
+## Technical Constraints
+- Python is the only programming language used (Python 3.12+)
+- No external services or APIs beyond standard Python libraries
+- Application runs locally in a terminal
+- Single-user usage only, with no authentication or authorization required
+- No network or web interface, CLI only
 
+## User Interaction Rules
+- All user interaction occurs via terminal input/output
+- Invalid user input must be handled gracefully
+- The application must never crash due to user input
+- Clear feedback must be shown for every action
 
-[PRINCIPLE__DESCRIPTION]
+## Scope Constraints
+- The application is a command-line interface (CLI)
+- Tasks are stored in memory only
+- Single-user usage only
+- No authentication or authorization
+- No database or file persistence
+- No network or web interface
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Non-Goals
+- Graphical user interface
+- Multi-user support
+- Data persistence
+- Performance optimization
+- Advanced error recovery
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+The constitution governs all development decisions for the Todo Application. All implementation must comply with these principles. Changes to the constitution require explicit documentation and approval. All code reviews must verify compliance with these principles.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-01 | **Last Amended**: 2026-01-01

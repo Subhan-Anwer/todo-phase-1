@@ -62,12 +62,12 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T004 Create Task model with id, title, description, and completion status
+- [ ] T005 [P] Implement in-memory task storage mechanism
+- [ ] T006 [P] Setup CLI argument parsing and command routing
+- [ ] T007 Create base todo application class that manages tasks in memory
+- [ ] T008 Configure error handling for invalid user input
+- [ ] T009 Setup application entry point and main loop
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -88,12 +88,12 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T012 [P] [US1] Implement add_task method in src/todo_app.py
+- [ ] T013 [P] [US1] Create CLI command for adding tasks in src/cli.py
+- [ ] T014 [US1] Implement unique ID generation for new tasks
+- [ ] T015 [US1] Add input validation for task titles
+- [ ] T016 [US1] Add error handling for invalid inputs
+- [ ] T017 [US1] Add success/failure feedback messages for add operation
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
