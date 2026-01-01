@@ -111,6 +111,7 @@ A user wants to remove tasks from their list when they're no longer needed or ha
 - **Task**: Represents a todo item with unique identifier, title, optional description, and completion status (incomplete by default when creating)
 - **TodoList**: Collection of Task entities managed in memory with operations to add, delete, update, and view tasks
 
+
 ## Success Criteria *(mandatory)*
 
 ### Measurable Outcomes
