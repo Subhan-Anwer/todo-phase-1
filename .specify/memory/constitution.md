@@ -32,6 +32,7 @@ Every new added task must have a unique identifier by default. Every task must h
 
 ## Technical Constraints
 - Python is the only programming language used (Python 3.12+)
+- UV package manager is used for dependency management
 - No external services or APIs beyond standard Python libraries
 - Application runs locally in a terminal
 - Single-user usage only, with no authentication or authorization required
